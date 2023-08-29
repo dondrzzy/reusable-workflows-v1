@@ -36,11 +36,11 @@ jobs:
           then
             echo "final_tag=latest" >> $GITHUB_ENV
           else
-            ehco "final_tag=${{inputs.tag}}" >> $GITHUB_ENV
+            echo "final_tag=${{inputs.tag}}" >> $GITHUB_ENV
           fi
 
       - name: Build and Push the Image
-        uses: docker/build--push-actioin@v2
+        uses: docker/build-push-action@v2
         with:
           context: .
           push: true
