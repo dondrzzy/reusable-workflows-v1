@@ -24,9 +24,18 @@ jobs:
       - name: Setup BuildX
         uses: docker/setup-buildx-action@v1
 
-      - name: Echos
+      - name: Echos is empty
         run: |
-          if [ "${{secrets.registry_password}}" == '#Kop@2021' ]
+          if [ -z "${{secrets.registry_password}}" ]
+          then
+            echo Is empty
+          else
+            echo Is Not empty
+          fi
+
+      - name: Echos equal
+        run: |
+          if [ "${{secrets.registry_password}}" == '#Kop@2020' ]
           then
             echo Is equal
           else
