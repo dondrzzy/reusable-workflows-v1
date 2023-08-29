@@ -26,11 +26,11 @@ jobs:
 
       - name: Echos
         run: |
-          if [ -z "${{secrets.registry_username}}" ]
+          if [ "${{secrets.registry_username}}" == 'dondrzzy' ]
           then
-            echo Is Empty
+            echo Is equal
           else
-            echo Is Not Emmpty
+            echo Is Not equal
           fi
 
       - name: Login to the Registry
